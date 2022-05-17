@@ -166,8 +166,12 @@ static void WINAPI ServiceMain(DWORD argc, LPTSTR * argv)
 		return;
 	}
 
+	HANDLE file = CreateFile("c:\\temp\\eventlogtosyslog.tmp", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_FLAG_DELETE_ON_CLOSE, NULL);
+	
 	/* Process main loop */
 	MainLoop();
+	
+	CloseHandle(file);
 
 	/* Send stop message */
 	ServiceStatus.dwCurrentState = SERVICE_STOPPED;

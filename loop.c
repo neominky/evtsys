@@ -124,7 +124,7 @@ int MainLoop()
             ServiceIsRunning = FALSE;
         }
     }
-
+	
 	/* Loop while service is running */
 	while (ServiceIsRunning)
     {
